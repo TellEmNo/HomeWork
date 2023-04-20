@@ -99,22 +99,42 @@
 #             break
 # print(f"Слово {word.upper()} набирает {total} баллов")
 
-# Еще один
+# Еще одно
 
-scrabble = {1: "AEIOULNSTRАВЕИНОРСТ",
-            2: "DGДКЛМПУ",
-            3: "BCMPБГЁЬЯ",
-            4: "FHVWYЙЫ",
-            5: "KЖЗХЦЧ",
-            8: "JXШЭЮ",
-            10: "QZФЩЪ"}
+# scrabble = {1: "AEIOULNSTRАВЕИНОРСТ",
+#             2: "DGДКЛМПУ",
+#             3: "BCMPБГЁЬЯ",
+#             4: "FHVWYЙЫ",
+#             5: "KЖЗХЦЧ",
+#             8: "JXШЭЮ",
+#             10: "QZФЩЪ"}
+#
+# word = input("Введите слово: ")
+# total = 0
+#
+# for letter in word.upper():
+#     for points, letters in scrabble.items():
+#         if letter in letters:
+#             total += points
+#             break
+# print(f"Слово {word.upper()} набирает {total} баллов")
+
+# И еще одно
+
+my_dict = {}
+
+my_dict.update(my_dict.fromkeys("AEIOULNSTRАВЕИНОРСТ", 1))
+my_dict.update(my_dict.fromkeys("DGДКЛМПУ", 2))
+my_dict.update(my_dict.fromkeys("BCMPБГЁЬЯ", 3))
+my_dict.update(my_dict.fromkeys("FHVWYЙЫ", 4))
+my_dict.update(my_dict.fromkeys("KЖЗХЦЧ", 5))
+my_dict.update(my_dict.fromkeys("JXШЭЮ", 8))
+my_dict.update(my_dict.fromkeys("QZФЩЪ", 10))
 
 word = input("Введите слово: ")
 total = 0
 
 for letter in word.upper():
-    for points, letters in scrabble.items():
-        if letter in letters:
-            total += points
-            break
+    total += my_dict.get(letter)
+
 print(f"Слово {word.upper()} набирает {total} баллов")
