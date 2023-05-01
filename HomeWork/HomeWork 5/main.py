@@ -1,27 +1,33 @@
 # Задача 26:  Напишите программу, которая на вход принимает два числа A и B,
 # и возводит число А в целую степень B с помощью рекурсии.
 
-# def expo(a, b):
-#     if b == 0:
-#         return 1
-#     return a * expo(a, b - 1)
-#
-#
-# a = int(input("Введите число: "))
-# b = int(input("Введите степень: "))
-#
-# print(expo(a, b))
+def expo(a, b):
+    def even(b):
+        if b % 2 == 0:
+            return True
+        return False
+    if b == 0:
+        return 1
+    if even(b):
+        return expo(a, b // 2) ** 2
+    return a * expo(a, b - 1)
+
+
+a = int(input("Введите число: "))
+b = int(input("Введите степень: "))
+
+print(expo(a, b))
 
 
 # Задача 28: Напишите рекурсивную функцию sum(a, b), возвращающую сумму двух целых неотрицательных чисел.
 # Из всех арифметических операций допускаются только +1 и -1. Также нельзя использовать циклы.
 
-def sum(a, b):
-    if b + a == 0:
-        return 0
-    return 1 + 1 + sum(a - 1, b - 1)
-
-
-a = int(input("Введите число a: "))
-b = int(input("Введите число b: "))
-print(sum(a, b))
+# def sum(a, b):
+#     if b + a == 0:
+#         return 0
+#     return 1 + 1 + sum(a - 1, b - 1)
+#
+#
+# a = int(input("Введите число a: "))
+# b = int(input("Введите число b: "))
+# print(sum(a, b))
