@@ -94,31 +94,46 @@ from random import randint
 # Программа получает на вход одно натуральное число k, не превосходящее 105.
 # Программа должна вывести  все пары дружественных чисел, каждое из которых не превосходит k.
 
-
-def dividers(k):
-    set_of_divisor_sums = {}
-    for i in range(2, k + 1):
-        basket = 0
-        for j in range(1, i//2 + 1):
-            if i % j == 0:
-                basket += j
-        set_of_divisor_sums[i] = basket
-    for i in range(2, len(set_of_divisor_sums) + 1):
-        if set_of_divisor_sums[i] == 1:
-            del set_of_divisor_sums[i]
-    return set_of_divisor_sums
+# мое
 
 
-def friendly_numbers(divisor: dict, k):
-    res_list = []
-    for i in divisor.keys():
-        for j in divisor.keys():
-            if i == divisor[j] and j == divisor[i] and i != divisor[i]:
-                res_list.append(f"{i} = {divisor[i]}")
-                # print(f"{i} = {divisor[j]}, {j} = {divisor[i]}")
-    return res_list
+# def dividers(k):
+#     set_of_divisor_sums = {}
+#     for i in range(2, k + 1):
+#         basket = 0
+#         for j in range(1, i//2 + 1):
+#             if i % j == 0:
+#                 basket += j
+#         set_of_divisor_sums[i] = basket
+#     return set_of_divisor_sums
+#
+#
+# def friendly_numbers(divisor: dict, k):
+#     res_list = []
+#     for i in divisor.keys():
+#         for j in divisor.keys():
+#             if i == divisor[j] and j == divisor[i] and i != divisor[i]:
+#                 res_list.append(f"{i} = {divisor[i]}")
+#         # if item in
+#     return res_list
+#
+#
+# k = 10**4
+# div = dividers(k)
+# print(f"Дружественные числа: {friendly_numbers(div, k)}")
+
+# другое решение
 
 
-k = 10**4
-div = dividers(k)
-print(f"Дружественные числа: {friendly_numbers(div, k)}")
+def summarize(number, sum = 0):
+    for item in range(1, number // 2 + 1):
+        if number % item == 0:
+            sum += item
+    return sum
+
+
+k = 10000
+my_list = [i for i in range(k)]
+for item in my_list:
+    if item == summarize(summarize(item)) and item != summarize(item):
+        print(item, summarize(item))
