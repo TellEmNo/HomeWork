@@ -47,7 +47,7 @@ def input_index(message: str, pb: list, error: str) -> int:
 
 
 def find_contact(message: str):
-    find = input(message).capitalize()
+    find = input(message)
     return find
 
 
